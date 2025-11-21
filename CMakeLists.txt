@@ -20,10 +20,11 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 # -----------------------------
 # Test executable
 # -----------------------------
-add_executable(tests tests/test_main.cpp)
+add_executable(tests tests/test_fuser.cpp)
 
 target_include_directories(tests PRIVATE
     ${PROJECT_SOURCE_DIR}/include
+    /usr/include/eigen3
     /usr/include/gtest
 )
 

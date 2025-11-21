@@ -7,5 +7,7 @@
 class Fuser {
     public:
         Fuser();
-            void fuse();
+            Eigen::Vector2d fuse(
+                const std::vector<Eigen::Vector2d>& vectors, 
+                const std::vector<Eigen::Matrix2d> &covariance_matrices);
 };
