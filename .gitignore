@@ -1,9 +1,11 @@
 # Prerequisites
 *.d
 
+**/Testing/**
+
 .vscode
 
-**/libs/**
+**/lib/**
 **/build/**
 
 # Compiled Object files

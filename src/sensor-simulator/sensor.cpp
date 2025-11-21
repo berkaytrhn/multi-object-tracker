@@ -1,6 +1,6 @@
 #include <iostream>
 
 
-int main(){
+int generate(){
     return 0;
 }

@@ -4,7 +4,7 @@
 
 using namespace Eigen;
 
-int main(int argc, char** argv) {
+int fuse() {
 
     Vector2d s1(100, 50);
     Vector2d s2 = Vector2d(102, 49);
