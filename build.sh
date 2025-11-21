@@ -1,9 +1,23 @@
 #!/bin/bash
 
-mkdir -p $1/build
+PROJECT_ROOT=${1:-$(pwd)}
+BUILD_TYPE=${2:-Release}
+BUILD_DIR="$PROJECT_ROOT/build/$BUILD_TYPE"
 
-cmake -G "MinGW Makefiles" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -S $1/ -B $1/build
+echo "Project root: $PROJECT_ROOT"
+echo "Build type: $BUILD_TYPE"
+echo "Build directory: $BUILD_DIR"
 
-mingw32-make -C $1/build
+# Create build directory
+mkdir -p "$BUILD_DIR"
+
+# Run CMake to configure
+cmake -S "$PROJECT_ROOT" -B "$BUILD_DIR" \
+      -DCMAKE_BUILD_TYPE="$BUILD_TYPE" \
+      -DCMAKE_CXX_COMPILER=/usr/bin/g++ \
+      -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+# Build
+cmake --build "$BUILD_DIR" -- -j$(nproc)
 
 echo "Build complete."
